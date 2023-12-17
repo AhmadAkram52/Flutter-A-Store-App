@@ -1,6 +1,4 @@
-// import '../../features/shop/models/cart_model.dart';
-
-class APricingCalculator {
+class TPricingCalculator {
   /// -- Calculate Price based on tax and shipping
   static double calculateTotalPrice(double productPrice, String location) {
     double taxRate = getTaxRateForLocation(location);
@@ -38,6 +36,7 @@ class APricingCalculator {
   }
 
   /// -- Sum all cart values and return total amount
+
 // static double calculateCartTotal(CartModel cart) {
 //   return cart.items.map((e) => e.price).fold(0, (previousPrice, currentPrice) => previousPrice + (currentPrice ?? 0));
 // }
