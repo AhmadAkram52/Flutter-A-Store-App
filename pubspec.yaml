@@ -29,8 +29,11 @@ dependencies:
 
   # State Management
   get: ^4.6.5
-  get_storage: ^2.1.1
   provider: ^6.1.1
+
+  #use Storage
+  get_storage: ^2.1.1
+  shared_preferences: ^2.2.2
 
   # Product Specific
   readmore: ^2.2.0
