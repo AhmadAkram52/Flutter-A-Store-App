@@ -1,4 +1,4 @@
-import 'package:a_store/features/authentication/screens/login_screen.dart';
+import 'package:a_store/features/authentication/screens/login/login_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +17,7 @@ class OnboardingController extends GetxController {
 
   void nextPage() {
     if (currentPage.value == 2) {
-      Get.to(const LoginPage());
+      Get.offAll(const LoginPage());
     } else {
       currentPage.value++;
       pageController.jumpToPage(currentPage.toInt());
@@ -25,6 +25,6 @@ class OnboardingController extends GetxController {
   }
 
   void skipPage() {
-    Get.to(const LoginPage());
+    Get.offAll(const LoginPage());
   }
 }

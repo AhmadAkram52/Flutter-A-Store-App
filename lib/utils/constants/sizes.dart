@@ -66,4 +66,8 @@ class ASizes {
 
   // Grid view spacing
   static const double gridViewSpacing = 16.0;
+
+  //Logo size
+
+  static const double logoSize = 120.0;
 }
