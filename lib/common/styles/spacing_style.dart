@@ -8,7 +8,7 @@ class ASpacingStyle {
       bottom: ASizes.defaultSpace,
       left: ASizes.defaultSpace);
   static const EdgeInsetsGeometry paddingWithOutTop = EdgeInsets.only(
-      top: 0.0,
+      top: ASizes.defaultSpace,
       right: ASizes.defaultSpace,
       bottom: ASizes.defaultSpace,
       left: ASizes.defaultSpace);

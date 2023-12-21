@@ -1,6 +1,8 @@
 import 'package:a_store/features/authentication/controllers/signup/signup_controller.dart';
+import 'package:a_store/utils/constants/colors.dart';
 import 'package:a_store/utils/constants/sizes.dart';
 import 'package:a_store/utils/constants/text_strings.dart';
+import 'package:a_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -12,46 +14,53 @@ class SignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SignupController controller = Get.put(SignupController());
+    final SignupController signUpCtrl = Get.put(SignupController());
+    final isDark = AHelperFunctions.isDarkMode(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: ASizes.spaceBtwSections),
       child: Form(
         child: Column(
           children: [
-            const Row(
+            Row(
               children: [
                 Flexible(
                     child: TextField(
-                  decoration: InputDecoration(
+                  controller: signUpCtrl.firstNameController.value,
+                  decoration: const InputDecoration(
                       prefixIcon: Icon(Iconsax.user),
                       label: Text(ATexts.firstName)),
                 )),
-                SizedBox(
+                const SizedBox(
                   width: ASizes.spaceBtwInputFields,
                 ),
                 Flexible(
                     child: TextField(
-                  decoration: InputDecoration(
+                  controller: signUpCtrl.lastNameController.value,
+                  decoration: const InputDecoration(
                       prefixIcon: Icon(Iconsax.user),
                       label: Text(ATexts.lastName)),
                 )),
               ],
             ),
             const SizedBox(height: ASizes.spaceBtwInputFields),
-            const TextField(
-              decoration: InputDecoration(
+            TextField(
+              controller: signUpCtrl.userNameController.value,
+              decoration: const InputDecoration(
                 prefixIcon: Icon(Iconsax.user_edit),
                 label: Text(ATexts.username),
               ),
             ),
             const SizedBox(height: ASizes.spaceBtwInputFields),
-            const TextField(
-              decoration: InputDecoration(
+            TextField(
+              controller: signUpCtrl.emailController.value,
+              keyboardType: TextInputType.emailAddress,
+              decoration: const InputDecoration(
                   prefixIcon: Icon(Iconsax.direct), label: Text(ATexts.email)),
             ),
             const SizedBox(height: ASizes.spaceBtwInputFields),
-            const TextField(
-              decoration: InputDecoration(
+            TextField(
+              controller: signUpCtrl.phoneController.value,
+              decoration: const InputDecoration(
                 prefixIcon: Icon(Iconsax.call),
                 label: Text(ATexts.phoneNo),
               ),
@@ -59,13 +68,14 @@ class SignUpForm extends StatelessWidget {
             const SizedBox(height: ASizes.spaceBtwInputFields),
             Obx(() {
               return TextField(
-                obscureText: controller.hidePassword.value,
+                controller: signUpCtrl.passwordController.value,
+                obscureText: signUpCtrl.hidePassword.value,
                 decoration: InputDecoration(
                     prefixIcon: const Icon(Iconsax.password_check),
                     label: const Text(ATexts.password),
                     suffixIcon: IconButton(
-                      onPressed: controller.showPassword,
-                      icon: Icon(controller.hidePassword.value
+                      onPressed: signUpCtrl.showPassword,
+                      icon: Icon(signUpCtrl.hidePassword.value
                           ? Iconsax.eye_slash
                           : Iconsax.eye),
                     )),
@@ -74,36 +84,51 @@ class SignUpForm extends StatelessWidget {
             const SizedBox(height: ASizes.spaceBtwInputFields),
             Row(
               children: [
-                Checkbox(value: true, onChanged: (value) {}),
-                Row(
+                SizedBox(
+                  height: ASizes.defaultSpace,
+                  width: ASizes.defaultSpace,
+                  child: Obx(() {
+                    return Checkbox(
+                        value: signUpCtrl.isCheck.value,
+                        onChanged: (value) => signUpCtrl.markCheck(value!));
+                  }),
+                ),
+                RichText(
+                    text: TextSpan(
                   children: [
-                    Text("${ATexts.iAgreeTo} ",
-                        style: Theme.of(context).textTheme.labelLarge),
-                    Text(
-                      ATexts.privacyPolicy,
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge
-                          ?.copyWith(textBaseline: TextBaseline.alphabetic),
+                    TextSpan(
+                        text: "${ATexts.iAgreeTo} ",
+                        style: Theme.of(context).textTheme.bodySmall),
+                    TextSpan(
+                      text: ATexts.privacyPolicy,
+                      style: Theme.of(context).textTheme.labelLarge?.apply(
+                            color: isDark ? AColors.light : AColors.primary,
+                            decoration: TextDecoration.underline,
+                            decorationColor:
+                                isDark ? AColors.light : AColors.primary,
+                          ),
                     ),
-                    Text(" ${ATexts.and} ",
-                        style: Theme.of(context).textTheme.labelLarge),
-                    Text(
-                      ATexts.termsOfUse,
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge!
-                          .copyWith(decorationStyle: TextDecorationStyle.solid),
+                    TextSpan(
+                        text: " ${ATexts.and} ",
+                        style: Theme.of(context).textTheme.bodySmall),
+                    TextSpan(
+                      text: ATexts.termsOfUse,
+                      style: Theme.of(context).textTheme.labelLarge!.apply(
+                            color: isDark ? AColors.light : AColors.primary,
+                            decoration: TextDecoration.underline,
+                            decorationColor:
+                                isDark ? AColors.light : AColors.primary,
+                          ),
                     ),
                   ],
-                ),
+                ))
               ],
             ),
             const SizedBox(height: ASizes.spaceBtwInputFields),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: controller.createAccount,
+                onPressed: signUpCtrl.createAccount,
                 child: const Text(ATexts.createAccount),
               ),
             )
