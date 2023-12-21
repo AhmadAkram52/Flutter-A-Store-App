@@ -6,14 +6,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class EmailVerifyScreen extends StatefulWidget {
+class EmailVerifyScreen extends StatelessWidget {
   const EmailVerifyScreen({super.key});
 
-  @override
-  State<EmailVerifyScreen> createState() => _EmailVerifyScreenState();
-}
-
-class _EmailVerifyScreenState extends State<EmailVerifyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
