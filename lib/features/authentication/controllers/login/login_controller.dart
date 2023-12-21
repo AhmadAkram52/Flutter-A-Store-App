@@ -24,4 +24,14 @@ class LoginController extends GetxController {
       rememberCheck.value = true;
     }
   }
+
+  void forgetPassword() {
+    Get.toNamed('/forget');
+  }
+
+  void signIn() {}
+
+  void createAccount() {
+    Get.toNamed('/signup');
+  }
 }

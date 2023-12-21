@@ -8,16 +8,14 @@ import 'package:a_store/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'widgets/login_form_btn.dart';
-
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,12 +30,10 @@ class _LoginPageState extends State<LoginPage> {
               /// Login Form
               const ALoginForm(),
 
-              /// Login Form Button
-              const LoginFormBtn(),
-
               /// Login Form Divider
               AFormDivider(title: ATexts.orSignInWith.capitalize!),
-              const SizedBox(height: ASizes.spaceBtwSections),
+
+              const SizedBox(height: ASizes.spaceBtwItems),
 
               /// Social Buttons
               const ASocialButtons(),

@@ -58,8 +58,25 @@ class ALoginForm extends StatelessWidget {
                   ],
                 ),
                 TextButton(
-                    onPressed: () {}, child: const Text(ATexts.forgetPassword)),
+                    onPressed: () => LoginController.instance.forgetPassword(),
+                    child: const Text(ATexts.forgetPassword)),
               ],
+            ),
+            const SizedBox(height: ASizes.spaceBtwItems),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: Theme.of(context).elevatedButtonTheme.style!.copyWith(),
+                child: const Text(ATexts.signIn),
+              ),
+            ),
+            const SizedBox(height: ASizes.spaceBtwItems),
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton(
+                  onPressed: () => LoginController.instance.createAccount(),
+                  child: const Text(ATexts.createAccount)),
             ),
           ],
         ),

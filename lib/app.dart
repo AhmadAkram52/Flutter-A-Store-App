@@ -1,4 +1,4 @@
-import 'package:a_store/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:a_store/utils/constants/page_route.dart';
 import 'package:a_store/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,7 +13,8 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ATheme.lightTheme,
       darkTheme: ATheme.darkTheme,
-      home: const OnboardingScreen(),
+      initialRoute: '/',
+      getPages: APageRoutes.aPagesRoutes,
     );
   }
 }

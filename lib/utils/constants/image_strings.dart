@@ -257,4 +257,8 @@ class AImages {
   static const String paytm = "assets/icons/payment_methods/paytm.png";
   static const String successfulPaymentIcon =
       "assets/icons/payment_methods/successful_payment_icon.png";
+
+  //--Auth
+
+  static const emailVerification = "assets/images/auth/mail-verification.gif";
 }
