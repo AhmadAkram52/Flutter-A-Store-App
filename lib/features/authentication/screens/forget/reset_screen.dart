@@ -1,52 +1,41 @@
-import 'package:a_store/common/styles/spacing_style.dart';
+import 'package:a_store/features/authentication/controllers/forget/forget_controller.dart';
 import 'package:a_store/utils/constants/image_strings.dart';
 import 'package:a_store/utils/constants/sizes.dart';
 import 'package:a_store/utils/constants/text_strings.dart';
 import 'package:a_store/utils/helpers/helper_functions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class EmailVerifyScreen extends StatelessWidget {
-  const EmailVerifyScreen({super.key});
+class ResetScreen extends StatelessWidget {
+  const ResetScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final bool isDark = AHelperFunctions.isDarkMode(context);
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-              onPressed: () => Get.offAllNamed('/login'),
-              icon: const Icon(CupertinoIcons.clear))
-        ],
-      ),
+      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: ASpacingStyle.paddingWithOutTop,
+          padding: const EdgeInsets.all(ASizes.defaultSpace),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Image(
-                image: AssetImage(AImages.deliveredEmailIllustration),
-              ),
-              const SizedBox(
-                height: ASizes.spaceBtwSections,
+              Image(
+                image: const AssetImage(AImages.deliveredEmailIllustration),
+                width: AHelperFunctions.screenWidth() * 0.6,
               ),
               Text(
-                ATexts.confirmEmail,
+                ATexts.changeYourPasswordTitle,
                 style: Theme.of(context).textTheme.headlineMedium,
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: ASizes.spaceBtwItems),
               Text(
-                Get.parameters['mail']!,
-                style: Theme.of(context).textTheme.labelLarge,
+                ForgetController.instance.forgetMailController.text,
+                style: Theme.of(context).textTheme.labelMedium,
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: ASizes.spaceBtwItems),
               Text(
-                ATexts.confirmEmailSubTitle,
+                ATexts.changeYourPasswordSubTitle,
                 style: Theme.of(context).textTheme.labelMedium,
                 textAlign: TextAlign.center,
               ),
@@ -54,15 +43,18 @@ class EmailVerifyScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () => Get.toNamed('/signUpSuccess'),
-                    child: const Text(ATexts.aContinue)),
+                  onPressed: () {},
+                  child: const Text(ATexts.aContinue),
+                ),
               ),
-              const SizedBox(height: ASizes.spaceBtwSections),
+              const SizedBox(height: ASizes.spaceBtwItems),
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                    onPressed: () {}, child: const Text(ATexts.resendEmail)),
-              )
+                  onPressed: () {},
+                  child: const Text(ATexts.resendEmail),
+                ),
+              ),
             ],
           ),
         ),
