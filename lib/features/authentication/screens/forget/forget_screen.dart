@@ -5,7 +5,6 @@ import 'package:a_store/utils/constants/text_strings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 
 class ForgetScreen extends StatelessWidget {
   const ForgetScreen({super.key});
@@ -44,33 +43,7 @@ class ForgetScreen extends StatelessWidget {
                 ATexts.forgetPasswordSubTitle,
                 style: Theme.of(context).textTheme.labelMedium,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    vertical: ASizes.spaceBtwSections),
-                child: Form(
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        controller: controller.forgetMailController,
-                        decoration: const InputDecoration(
-                          prefixIcon: Icon(Iconsax.direct_right),
-                          label: Text(ATexts.email),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: ASizes.spaceBtwItems,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () => controller.submitMail(),
-                          child: const Text(ATexts.submit),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              )
+              ForgetForm(controller: controller)
             ],
           ),
         ),
