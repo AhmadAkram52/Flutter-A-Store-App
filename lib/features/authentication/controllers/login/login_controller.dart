@@ -29,7 +29,9 @@ class LoginController extends GetxController {
     Get.toNamed('/forget');
   }
 
-  void signIn() {}
+  void signIn() {
+    Get.toNamed('/navigation');
+  }
 
   void createAccount() {
     Get.toNamed('/signup');

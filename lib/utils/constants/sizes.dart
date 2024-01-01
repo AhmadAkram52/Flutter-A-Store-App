@@ -70,4 +70,8 @@ class ASizes {
   //Logo size
 
   static const double logoSize = 120.0;
+
+  // Navigation Bar size
+
+  static const double navBarHeight = 80;
 }

@@ -66,7 +66,7 @@ class ALoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => controller.signIn(),
                 style: Theme.of(context).elevatedButtonTheme.style!.copyWith(),
                 child: const Text(ATexts.signIn),
               ),
