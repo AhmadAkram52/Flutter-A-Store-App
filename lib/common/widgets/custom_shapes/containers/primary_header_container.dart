@@ -1,6 +1,7 @@
 import 'package:a_store/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:a_store/common/widgets/custom_shapes/curved_edges/curved_edge_widget.dart';
 import 'package:a_store/utils/constants/colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryHeaderContainer extends StatelessWidget {
@@ -16,34 +17,25 @@ class PrimaryHeaderContainer extends StatelessWidget {
     return ACurvedEdgeWidget(
       child: Container(
         color: AColors.primary,
-        padding: const EdgeInsets.all(0),
-        child: SizedBox(
-          height: 400,
-          child: Stack(
-            children: [
-              Positioned(
-                top: -150,
-                right: -250,
-                child: ACircularContainer(
-                  backgroundColor: AColors.textWhite.withOpacity(.1),
-                ),
+        padding: const EdgeInsets.only(bottom: 0),
+        child: Stack(
+          children: [
+            Positioned(
+              top: -150,
+              right: -250,
+              child: ACircularContainer(
+                backgroundColor: AColors.textWhite.withOpacity(.1),
               ),
-              Positioned(
-                top: 100,
-                right: -300,
-                child: ACircularContainer(
-                  backgroundColor: AColors.textWhite.withOpacity(.1),
-                ),
+            ),
+            Positioned(
+              top: 100,
+              right: -300,
+              child: ACircularContainer(
+                backgroundColor: AColors.textWhite.withOpacity(.1),
               ),
-              // const Column(
-              //   children: [
-              //     /// AppBar
-              //     /// SearchBar
-              //     /// Categories
-              //   ],
-              // )
-            ],
-          ),
+            ),
+            child,
+          ],
         ),
       ),
     );
