@@ -15,27 +15,25 @@ class PrimaryHeaderContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ACurvedEdgeWidget(
-      child: Container(
-        color: AColors.primary,
-        padding: const EdgeInsets.only(bottom: 0),
-        child: Stack(
-          children: [
-            Positioned(
-              top: -150,
-              right: -250,
-              child: ACircularContainer(
-                backgroundColor: AColors.textWhite.withOpacity(.1),
-              ),
-            ),
-            Positioned(
-              top: 100,
-              right: -300,
-              child: ACircularContainer(
-                backgroundColor: AColors.textWhite.withOpacity(.1),
-              ),
-            ),
-            child,
-          ],
+      child: SizedBox(
+        height: 400,
+        child: Container(
+          color: AColors.primary,
+          child: Stack(
+            children: [
+              Positioned(
+                  top: -150,
+                  right: -250,
+                  child: ACircularContainer(
+                      backgroundColor: AColors.textWhite.withOpacity(.1))),
+              Positioned(
+                  top: 100,
+                  right: -300,
+                  child: ACircularContainer(
+                      backgroundColor: AColors.textWhite.withOpacity(.1))),
+              child,
+            ],
+          ),
         ),
       ),
     );
