@@ -1,7 +1,7 @@
 import 'package:a_store/common/widgets/image_text/vertical_image_text.dart';
 import 'package:a_store/common/widgets/text/section_heading.dart';
+import 'package:a_store/features/shop/models/categories/categories_list.dart';
 import 'package:a_store/utils/constants/colors.dart';
-import 'package:a_store/utils/constants/image_strings.dart';
 import 'package:a_store/utils/constants/sizes.dart';
 import 'package:a_store/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -30,11 +30,11 @@ class AHomeCategoriesList extends StatelessWidget {
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: categoriesList.length,
               itemBuilder: (BuildContext context, int index) {
                 return AVerticalImageText(
-                  title: 'Shoes',
-                  image: AImages.appleLogo,
+                  title: categoriesList[index].title,
+                  image: categoriesList[index].image,
                   iconColor: AColors.black,
                   backgroundColor: AColors.white,
                   onTap: () {},

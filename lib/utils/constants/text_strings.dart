@@ -66,6 +66,16 @@ class ATexts {
   static const String popularProducts = "Popular Products";
   static const String popularCategories = "Popular Categories";
 
+  // --Categories
+  static const String shoes = "Shoes";
+  static const String sport = "Sport";
+  static const String cloth = "Cloth";
+  static const String cosmetics = "Cosmetics";
+  static const String electronics = "Electronics";
+  static const String animal = "Animal";
+  static const String furniture = "Furniture";
+  static const String jewelery = "Jewelery";
+
   // -- Home
   static const String homeAppbarTitle = "Good day for shopping";
   static const String homeAppbarSubTitle = "Ahmad Akram";
