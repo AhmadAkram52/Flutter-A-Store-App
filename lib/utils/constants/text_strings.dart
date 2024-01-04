@@ -68,4 +68,7 @@ class ATexts {
   // -- Home
   static const String homeAppbarTitle = "Good day for shopping";
   static const String homeAppbarSubTitle = "Ahmad Akram";
+
+  // --Search
+  static const String searchInStore = "Search In Store";
 }
