@@ -29,6 +29,7 @@ class ACircularContainer extends StatelessWidget {
         color: backgroundColor,
         borderRadius: BorderRadius.circular(radius),
       ),
+      child: child,
     );
   }
 }
