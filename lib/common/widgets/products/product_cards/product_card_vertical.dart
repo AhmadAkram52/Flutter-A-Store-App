@@ -2,6 +2,7 @@ import 'package:a_store/common/styles/shadow_style.dart';
 import 'package:a_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:a_store/common/widgets/icon/circular_icon.dart';
 import 'package:a_store/common/widgets/images/rounded_image.dart';
+import 'package:a_store/common/widgets/text/product_price_text.dart';
 import 'package:a_store/common/widgets/text/product_title_text.dart';
 import 'package:a_store/utils/constants/colors.dart';
 import 'package:a_store/utils/constants/image_strings.dart';
@@ -122,36 +123,6 @@ class AProductCardVertical extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class AProductPriceText extends StatelessWidget {
-  const AProductPriceText({
-    super.key,
-    required this.price,
-    this.currencySign = '\$',
-    this.maxLine = 1,
-    this.isLarge = false,
-    this.lineThrough = false,
-  });
-
-  final String price, currencySign;
-  final double maxLine;
-  final bool isLarge;
-  final bool lineThrough;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      "\$35.5",
-      style: isLarge
-          ? Theme.of(context).textTheme.headlineMedium!.apply(
-              decoration: lineThrough ? TextDecoration.lineThrough : null)
-          : Theme.of(context).textTheme.titleLarge!.apply(
-              decoration: lineThrough ? TextDecoration.lineThrough : null),
-      overflow: TextOverflow.ellipsis,
-      maxLines: 1,
     );
   }
 }
