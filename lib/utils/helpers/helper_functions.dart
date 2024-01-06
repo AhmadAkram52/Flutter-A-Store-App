@@ -1,3 +1,4 @@
+import 'package:a_store/features/shop/models/products/products_data_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -98,6 +99,22 @@ class AHelperFunctions {
 
   static List<T> removeDuplicates<T>(List<T> list) {
     return list.toSet().toList();
+  }
+
+  static List<T> filterList<T>(List<T> inputList, bool Function(T) predicate) {
+    List<T> filteredList = [];
+
+    for (var item in inputList) {
+      if (predicate(item)) {
+        filteredList.add(item);
+      }
+    }
+    return filteredList;
+  }
+
+  List<ProductsDataModel> filterProductsByBrand(
+      List<ProductsDataModel> inputList, String brand) {
+    return inputList.where((product) => product.brandName == brand).toList();
   }
 
   static List<Widget> wrapWidgets(List<Widget> widgets, int rowSize) {

@@ -1,18 +1,18 @@
-import 'package:a_store/common/widgets/appbar/appbar.dart';
-import 'package:a_store/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:a_store/common/widgets/images/circular_image.dart';
+import 'package:a_store/common/widgets/bars/appbar.dart';
+import 'package:a_store/common/widgets/bars/tabbar.dart';
+import 'package:a_store/common/widgets/brand/brand_card.dart';
 import 'package:a_store/common/widgets/layout/gridview_layout.dart';
 import 'package:a_store/common/widgets/products/cart/cart_counter_icon.dart';
 import 'package:a_store/common/widgets/searchbar/search_bar.dart';
-import 'package:a_store/common/widgets/text/brand_title_with_verified_icon.dart';
 import 'package:a_store/common/widgets/text/section_heading.dart';
 import 'package:a_store/features/shop/models/brand/brands_list.dart';
 import 'package:a_store/utils/constants/colors.dart';
-import 'package:a_store/utils/constants/enums.dart';
 import 'package:a_store/utils/constants/sizes.dart';
 import 'package:a_store/utils/constants/text_strings.dart';
 import 'package:a_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+
+import 'widget/store_category_tab.dart';
 
 class AStore extends StatelessWidget {
   const AStore({super.key});
@@ -20,7 +20,8 @@ class AStore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool isDark = AHelperFunctions.isDarkMode(context);
-    return SafeArea(
+    return DefaultTabController(
+      length: 8,
       child: Scaffold(
           appBar: AAppBar(
             title: Text(
@@ -43,7 +44,7 @@ class AStore extends StatelessWidget {
                   pinned: true,
                   floating: true,
                   backgroundColor: isDark ? AColors.dark : AColors.light,
-                  expandedHeight: 440,
+                  expandedHeight: 410,
                   flexibleSpace: Padding(
                     padding: const EdgeInsets.all(ASizes.defaultSpace),
                     child: ListView(
@@ -62,81 +63,42 @@ class AStore extends StatelessWidget {
                           AGridViewLayout(
                             itemCounter: 4,
                             mainAxisExtent: 65,
-                            itemBuilder: (context, index) => ABrandCardWithLogo(
-                              list: brandsList,
-                              index: index,
+                            itemBuilder: (context, index) => ABrandCard(
+                              title: brandsList[index].title,
+                              image: brandsList[index].image,
+                              noOfProducts: 33 * (index + 2),
                             ),
-                          )
+                          ),
                         ]),
+                  ),
+                  bottom: const ATabBar(
+                    tabs: [
+                      Tab(child: Text(ATexts.shoes)),
+                      Tab(child: Text(ATexts.sport)),
+                      Tab(child: Text(ATexts.cloth)),
+                      Tab(child: Text(ATexts.cosmetics)),
+                      Tab(child: Text(ATexts.electronics)),
+                      Tab(child: Text(ATexts.animal)),
+                      Tab(child: Text(ATexts.furniture)),
+                      Tab(child: Text(ATexts.jewelery)),
+                    ],
                   ),
                 )
               ];
             },
-            body: const SingleChildScrollView(
-              child: Column(
-                children: [
-                  SizedBox(height: ASizes.defaultSpace),
-                  ASearchBar(
-                    hintText: 'Search In Shop',
-                  ),
-                ],
-              ),
+            body: const TabBarView(
+              children: [
+                ACategoryTab(),
+                ACategoryTab(),
+                ACategoryTab(),
+                ACategoryTab(),
+                ACategoryTab(),
+                ACategoryTab(),
+                ACategoryTab(),
+                ACategoryTab(),
+              ],
             ),
           )),
-    );
-  }
-}
-
-class ABrandCardWithLogo extends StatelessWidget {
-  const ABrandCardWithLogo({
-    super.key,
-    required this.index,
-    required this.list,
-  });
-
-  final int index;
-  final List<ABrandList> list;
-
-  @override
-  Widget build(BuildContext context) {
-    final bool isDark = AHelperFunctions.isDarkMode(context);
-    return InkWell(
-      onTap: () {},
-      child: ARoundedContainer(
-        padding: const EdgeInsets.all(ASizes.sm),
-        showBorder: true,
-        backgroundColor: Colors.transparent,
-        child: Row(
-          children: [
-            ///Icon
-            Flexible(
-              child: ACircularImage(
-                image: brandsList[index].image,
-                backgroundColor: Colors.transparent,
-                overlyColor: isDark ? AColors.white : AColors.black,
-              ),
-            ),
-            const SizedBox(width: ASizes.spaceBtwItems / 2),
-            Expanded(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ABrandNameWithVerifyIcon(
-                    title: brandsList[index].title,
-                    brandTextSize: TextSizes.large,
-                  ),
-                  Text(
-                    "255 Products",
-                    style: Theme.of(context).textTheme.labelMedium,
-                    overflow: TextOverflow.ellipsis,
-                  )
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

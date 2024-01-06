@@ -162,7 +162,7 @@ class ATexts {
 
   // --Categories
   static const String shoes = "Shoes";
-  static const String sport = "Sport";
+  static const String sport = "Sports";
   static const String cloth = "Cloth";
   static const String cosmetics = "Cosmetics";
   static const String electronics = "Electronics";
