@@ -52,7 +52,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: ASizes.spaceBtwItems),
                   AGridViewLayout(
-                    itemCounter: productsList.length,
+                    itemCounter: 4,
                     itemBuilder: (context, a) =>
                         AProductCardVertical(list: productsList, index: a),
                   ),

@@ -2,6 +2,7 @@ import 'package:a_store/common/styles/shadow_style.dart';
 import 'package:a_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:a_store/common/widgets/icon/circular_icon.dart';
 import 'package:a_store/common/widgets/images/rounded_image.dart';
+import 'package:a_store/common/widgets/text/brand_title_with_verified_icon.dart';
 import 'package:a_store/common/widgets/text/product_price_text.dart';
 import 'package:a_store/common/widgets/text/product_title_text.dart';
 import 'package:a_store/features/shop/models/products/products_data_model.dart';
@@ -29,7 +30,7 @@ class AProductCardVertical extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [AShadowStyle.verticalProductShadow],
           borderRadius: BorderRadius.circular(ASizes.productImageRadius),
-          color: isDark ? AColors.darkerGrey : AColors.white,
+          color: isDark ? AColors.darkerGrey : AColors.grey,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,15 +38,14 @@ class AProductCardVertical extends StatelessWidget {
             ARoundedContainer(
               width: 180,
               padding: const EdgeInsets.all(ASizes.sm),
-              backgroundColor: isDark ? AColors.darkerGrey : AColors.white,
+              backgroundColor: isDark ? AColors.dark : AColors.white,
               child: Stack(
                 children: [
                   Center(
                     child: ARoundedImage(
                       imageUrl: list[index].image,
                       height: ASizes.productImageSize,
-                      backgroundColor:
-                          isDark ? AColors.darkerGrey : AColors.white,
+                      backgroundColor: isDark ? AColors.dark : AColors.white,
                       applyImageRadius: true,
                     ),
                   ),
@@ -84,51 +84,42 @@ class AProductCardVertical extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: ASizes.spaceBtwItems / 2),
                   AProductTitle(
                     title: list[index].title,
                     textSmall: true,
-                    maxLine: 1,
+                    maxLine: 2,
                   ),
                   const SizedBox(height: ASizes.spaceBtwItems / 2),
-                  Row(
-                    children: [
-                      Text(
-                        list[index].brandName,
-                        style: Theme.of(context).textTheme.labelMedium,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                      ),
-                      const SizedBox(width: ASizes.xs),
-                      const Icon(Iconsax.verify5,
-                          color: AColors.primary, size: ASizes.iconXs)
-                    ],
-                  ),
+                  ABrandNameWithVerifyIcon(title: list[index].brandName),
                   const SizedBox(height: ASizes.spaceBtwItems / 2),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      AProductPriceText(
-                        price: '${list[index].price}  ${index + 1}',
-                      ),
-                      Container(
-                        decoration: const BoxDecoration(
-                            color: AColors.dark,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(ASizes.cardRadiusMd),
-                              bottomRight:
-                                  Radius.circular(ASizes.productImageRadius),
-                            )),
-                        child: const SizedBox(
-                            height: ASizes.iconLg * 1.2,
-                            width: ASizes.iconLg * 1.2,
-                            child: Center(
-                                child:
-                                    Icon(Iconsax.add, color: AColors.white))),
-                      )
-                    ],
-                  ),
                 ],
               ),
+            ),
+            const Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: ASizes.sm),
+                  child: AProductPriceText(
+                    price: '${list[index].price}  $index',
+                  ),
+                ),
+                Container(
+                  decoration: const BoxDecoration(
+                      color: AColors.dark,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(ASizes.cardRadiusMd),
+                        bottomRight: Radius.circular(ASizes.productImageRadius),
+                      )),
+                  child: const SizedBox(
+                      height: ASizes.iconLg * 1.2,
+                      width: ASizes.iconLg * 1.2,
+                      child: Center(
+                          child: Icon(Iconsax.add, color: AColors.white))),
+                )
+              ],
             ),
           ],
         ),

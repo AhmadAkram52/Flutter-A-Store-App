@@ -5,7 +5,7 @@ class AGridViewLayout extends StatelessWidget {
   const AGridViewLayout({
     super.key,
     required this.itemCounter,
-    this.mainAxisExtent = 226,
+    this.mainAxisExtent = 252,
     required this.itemBuilder,
   });
 
@@ -18,11 +18,11 @@ class AGridViewLayout extends StatelessWidget {
     return GridView.builder(
       padding: EdgeInsets.zero,
       physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: ASizes.gridViewSpacing,
         mainAxisSpacing: ASizes.gridViewSpacing,
-        mainAxisExtent: 226,
+        mainAxisExtent: mainAxisExtent,
       ),
       shrinkWrap: true,
       itemCount: itemCounter,

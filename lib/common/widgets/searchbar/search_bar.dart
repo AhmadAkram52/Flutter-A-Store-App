@@ -8,14 +8,16 @@ class ASearchBar extends StatelessWidget {
   const ASearchBar({
     super.key,
     required this.hintText,
+    this.padding = const EdgeInsets.symmetric(horizontal: ASizes.md),
   });
 
   final String hintText;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: ASizes.md),
+      padding: padding,
       child: TextFormField(
         keyboardType: TextInputType.text,
         style: Theme.of(context)
