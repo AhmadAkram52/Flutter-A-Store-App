@@ -7,7 +7,10 @@ import 'package:iconsax/iconsax.dart';
 class ASearchBar extends StatelessWidget {
   const ASearchBar({
     super.key,
+    required this.hintText,
   });
+
+  final String hintText;
 
   @override
   Widget build(BuildContext context) {

@@ -18,7 +18,7 @@ class AProductPriceText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      "\$35.5",
+      currencySign + price,
       style: isLarge
           ? Theme.of(context).textTheme.headlineMedium!.apply(
               decoration: lineThrough ? TextDecoration.lineThrough : null)

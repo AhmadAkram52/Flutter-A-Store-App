@@ -29,10 +29,6 @@ class AAppBar extends StatelessWidget implements PreferredSizeWidget {
         horizontal: ASizes.md,
       ),
       child: AppBar(
-        elevation: 50,
-        // backgroundColor: AColors.dark.withOpacity(.3),
-        // shape: RoundedRectangleBorder(
-        //     borderRadius: BorderRadius.circular(ASizes.defaultSpace)),
         automaticallyImplyLeading: false,
         leading: showBackArrow
             ? IconButton(

@@ -2,11 +2,14 @@ import 'package:a_store/common/widgets/custom_shapes/containers/primary_header_c
 import 'package:a_store/common/widgets/layout/gridview_layout.dart';
 import 'package:a_store/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:a_store/common/widgets/searchbar/search_bar.dart';
+import 'package:a_store/common/widgets/text/section_heading.dart';
+import 'package:a_store/features/shop/models/products/products_data_model.dart';
 import 'package:a_store/features/shop/screens/home/widgets/home_app_bar.dart';
 import 'package:a_store/features/shop/screens/home/widgets/home_categories_list.dart';
 import 'package:a_store/features/shop/screens/home/widgets/home_promo_slider.dart';
 import 'package:a_store/utils/constants/image_strings.dart';
 import 'package:a_store/utils/constants/sizes.dart';
+import 'package:a_store/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -26,7 +29,7 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: ASizes.spaceBtwSections),
 
                   /// SearchBar
-                  ASearchBar(),
+                  ASearchBar(hintText: 'Search In Shop'),
                   SizedBox(height: ASizes.spaceBtwSections),
 
                   /// Categories
@@ -44,9 +47,14 @@ class HomeScreen extends StatelessWidget {
                     AImages.promoBanner3,
                   ]),
                   const SizedBox(height: ASizes.spaceBtwItems),
+                  const ASectionHeading(
+                    headingTitle: ATexts.popularProducts,
+                  ),
+                  const SizedBox(height: ASizes.spaceBtwItems),
                   AGridViewLayout(
-                    itemCounter: 10,
-                    itemBuilder: (context, a) => const AProductCardVertical(),
+                    itemCounter: productsList.length,
+                    itemBuilder: (context, a) =>
+                        AProductCardVertical(list: productsList, index: a),
                   ),
                 ],
               ),
