@@ -1,5 +1,6 @@
 import 'package:a_store/common/widgets/bars/appbar.dart';
 import 'package:a_store/common/widgets/custom_shapes/containers/primary_header_container.dart';
+import 'package:a_store/common/widgets/list_tiles/setting_menu_list_tile.dart';
 import 'package:a_store/common/widgets/list_tiles/user_list_tile.dart';
 import 'package:a_store/common/widgets/text/section_heading.dart';
 import 'package:a_store/utils/constants/colors.dart';
@@ -53,7 +54,7 @@ class Settings extends StatelessWidget {
                       ASettingMenuTile(
                           pageTitle: ATexts.myOrders,
                           subTitle: ATexts.inProgressOrder,
-                          leadingIcon: Iconsax.card_tick),
+                          leadingIcon: Iconsax.bag_tick),
                       ASettingMenuTile(
                           pageTitle: ATexts.bankAccount,
                           subTitle: ATexts.withdrawBalance,
@@ -69,7 +70,7 @@ class Settings extends StatelessWidget {
                       ASettingMenuTile(
                           pageTitle: ATexts.accountPrivacy,
                           subTitle: ATexts.manageDataUsing,
-                          leadingIcon: Iconsax.shield_security2),
+                          leadingIcon: Iconsax.security_card),
                       SizedBox(height: ASizes.spaceBtwItems),
                     ],
                   ),
@@ -93,7 +94,7 @@ class Settings extends StatelessWidget {
                       ASettingMenuTile(
                         pageTitle: ATexts.safeMode,
                         subTitle: ATexts.searchResultInSafe,
-                        leadingIcon: Iconsax.security_safe,
+                        leadingIcon: Iconsax.security_user,
                         actionButton:
                             Switch(value: false, onChanged: (value) {}),
                       ),
@@ -104,7 +105,7 @@ class Settings extends StatelessWidget {
                         actionButton:
                             Switch(value: false, onChanged: (value) {}),
                       ),
-                      const SizedBox(height: ASizes.spaceBtwItems),
+                      const SizedBox(height: ASizes.spaceBtwSections),
                     ],
                   ),
                   SizedBox(
@@ -113,52 +114,14 @@ class Settings extends StatelessWidget {
                       onPressed: () {},
                       child: const Text(ATexts.logOut),
                     ),
-                  )
+                  ),
+                  const SizedBox(height: ASizes.spaceBtwSections * 2.5),
                 ],
               ),
             ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class ASettingMenuTile extends StatelessWidget {
-  const ASettingMenuTile({
-    super.key,
-    required this.pageTitle,
-    required this.subTitle,
-    this.showActionButton = false,
-    this.leadingIcon,
-    this.onTap,
-    this.actionButton,
-  });
-
-  final String pageTitle, subTitle;
-  final bool showActionButton;
-  final IconData? leadingIcon;
-  final VoidCallback? onTap;
-  final Widget? actionButton;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      onTap: onTap,
-      leading: Icon(
-        leadingIcon,
-        color: AColors.primary,
-        size: ASizes.iconLg,
-      ),
-      title: Text(
-        pageTitle,
-        style: Theme.of(context).textTheme.headlineSmall,
-      ),
-      subtitle: Text(
-        subTitle,
-        style: Theme.of(context).textTheme.labelLarge,
-      ),
-      trailing: actionButton,
     );
   }
 }
