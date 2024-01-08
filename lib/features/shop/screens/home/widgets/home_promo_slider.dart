@@ -1,5 +1,5 @@
 import 'package:a_store/common/widgets/images/rounded_image.dart';
-import 'package:a_store/features/shop/controllers/home_controller.dart';
+import 'package:a_store/features/shop/controllers/home/home_controller.dart';
 import 'package:a_store/utils/constants/sizes.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';

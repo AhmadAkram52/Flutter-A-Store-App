@@ -5,11 +5,13 @@ import 'package:a_store/common/widgets/images/rounded_image.dart';
 import 'package:a_store/common/widgets/text/brand_title_with_verified_icon.dart';
 import 'package:a_store/common/widgets/text/product_price_text.dart';
 import 'package:a_store/common/widgets/text/product_title_text.dart';
+import 'package:a_store/features/shop/controllers/wishlist/wishlist_controller.dart';
 import 'package:a_store/features/shop/models/products/products_data_model.dart';
 import 'package:a_store/utils/constants/colors.dart';
 import 'package:a_store/utils/constants/sizes.dart';
 import 'package:a_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class AProductCardVertical extends StatelessWidget {
@@ -22,6 +24,7 @@ class AProductCardVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool isDark = AHelperFunctions.isDarkMode(context);
+    final wishlistController = Get.put(WishListController());
     return InkWell(
       onTap: () {},
       child: Container(
@@ -68,14 +71,25 @@ class AProductCardVertical extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Positioned(
-                    top: 0,
-                    right: 0,
-                    child: ACircularIcon(
-                      icon: Iconsax.heart5,
-                      iconColor: Colors.red,
-                    ),
-                  ),
+                  Obx(() {
+                    return Positioned(
+                      top: 0,
+                      right: 0,
+                      child: ACircularIcon(
+                        onPress: () {
+                          wishlistController.addToWishList(index);
+                        },
+                        icon: wishlistController.favList.contains(index)
+                            ? Iconsax.heart5
+                            : Iconsax.heart,
+                        iconColor: wishlistController.favList.contains(index)
+                            ? Colors.red
+                            : isDark
+                                ? AColors.light
+                                : AColors.dark,
+                      ),
+                    );
+                  }),
                 ],
               ),
             ),

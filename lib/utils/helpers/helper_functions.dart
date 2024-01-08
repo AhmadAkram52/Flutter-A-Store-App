@@ -101,20 +101,12 @@ class AHelperFunctions {
     return list.toSet().toList();
   }
 
-  static List<T> filterList<T>(List<T> inputList, bool Function(T) predicate) {
-    List<T> filteredList = [];
-
-    for (var item in inputList) {
-      if (predicate(item)) {
-        filteredList.add(item);
-      }
-    }
-    return filteredList;
-  }
-
-  List<ProductsDataModel> filterProductsByBrand(
+  static List<ProductsDataModel> filterProductsByBrand(
       List<ProductsDataModel> inputList, String brand) {
-    return inputList.where((product) => product.brandName == brand).toList();
+    List<ProductsDataModel> brandProductsList = [];
+    brandProductsList =
+        inputList.where((product) => product.brandName == brand).toList();
+    return brandProductsList;
   }
 
   static List<Widget> wrapWidgets(List<Widget> widgets, int rowSize) {

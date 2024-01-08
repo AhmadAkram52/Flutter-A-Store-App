@@ -23,19 +23,21 @@ class ACircularIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool isDark = AHelperFunctions.isDarkMode(context);
-    return InkWell(
-      onTap: () {},
-      child: Container(
-          height: height,
-          padding: const EdgeInsets.all(5),
-          width: width,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(100),
-            color: isDark
-                ? AColors.black.withOpacity(.7)
-                : AColors.white.withOpacity(.9),
+    return Container(
+        height: height,
+        padding: const EdgeInsets.all(0),
+        width: width,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100),
+          color: isDark
+              ? AColors.darkerGrey.withOpacity(.9)
+              : AColors.grey.withOpacity(.9),
+        ),
+        child: Center(
+          child: IconButton(
+            icon: Icon(icon, size: iconSize, color: iconColor),
+            onPressed: onPress,
           ),
-          child: Icon(icon, size: iconSize, color: iconColor)),
-    );
+        ));
   }
 }

@@ -4,6 +4,7 @@ import 'package:a_store/features/shop/models/categories/categories_list.dart';
 import 'package:a_store/utils/constants/colors.dart';
 import 'package:a_store/utils/constants/sizes.dart';
 import 'package:a_store/utils/constants/text_strings.dart';
+import 'package:a_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class AHomeCategoriesList extends StatelessWidget {
@@ -13,6 +14,7 @@ class AHomeCategoriesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = AHelperFunctions.isDarkMode(context);
     return Padding(
       padding: const EdgeInsets.only(left: ASizes.md),
       child: Column(
@@ -35,8 +37,8 @@ class AHomeCategoriesList extends StatelessWidget {
                 return AVerticalImageText(
                   title: categoriesList[index].title,
                   image: categoriesList[index].image,
-                  iconColor: AColors.black,
-                  backgroundColor: AColors.white,
+                  iconColor: isDark ? AColors.white : AColors.dark,
+                  backgroundColor: !isDark ? AColors.white : AColors.dark,
                   onTap: () {},
                 );
               },

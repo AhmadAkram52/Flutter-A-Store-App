@@ -29,11 +29,14 @@ class HomeScreen extends StatelessWidget {
                   SizedBox(height: ASizes.spaceBtwSections),
 
                   /// SearchBar
-                  ASearchBar(hintText: 'Search In Shop'),
+                  ASearchBar(
+                    hintText: 'Search In Shop',
+                  ),
                   SizedBox(height: ASizes.spaceBtwSections),
 
                   /// Categories
-                  AHomeCategoriesList()
+                  AHomeCategoriesList(),
+                  SizedBox(height: ASizes.spaceBtwSections),
                 ],
               ),
             ),

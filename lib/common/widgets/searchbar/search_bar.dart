@@ -1,6 +1,7 @@
 import 'package:a_store/utils/constants/colors.dart';
 import 'package:a_store/utils/constants/sizes.dart';
 import 'package:a_store/utils/constants/text_strings.dart';
+import 'package:a_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -16,16 +17,14 @@ class ASearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = AHelperFunctions.isDarkMode(context);
     return Padding(
       padding: padding,
       child: TextFormField(
         keyboardType: TextInputType.text,
-        style: Theme.of(context)
-            .textTheme
-            .titleLarge
-            ?.apply(color: AColors.darkerGrey),
+        style: Theme.of(context).textTheme.titleLarge,
         decoration: InputDecoration(
-            fillColor: AColors.white,
+            fillColor: isDark ? AColors.dark : AColors.light,
             filled: true,
             prefixIcon: const Icon(Iconsax.search_normal),
             hintText: ATexts.searchInStore,
@@ -33,7 +32,7 @@ class ASearchBar extends StatelessWidget {
                 .textTheme
                 .titleLarge
                 ?.apply(color: AColors.darkerGrey),
-            prefixIconColor: AColors.darkerGrey),
+            prefixIconColor: !isDark ? AColors.dark : AColors.light),
       ),
     );
   }

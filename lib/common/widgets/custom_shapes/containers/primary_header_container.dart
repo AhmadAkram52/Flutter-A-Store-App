@@ -6,17 +6,19 @@ import 'package:flutter/material.dart';
 
 class PrimaryHeaderContainer extends StatelessWidget {
   final Widget child;
+  final double? height;
 
   const PrimaryHeaderContainer({
     super.key,
     required this.child,
+    this.height,
   });
 
   @override
   Widget build(BuildContext context) {
     return ACurvedEdgeWidget(
       child: SizedBox(
-        height: 400,
+        height: height,
         child: Container(
           color: AColors.primary,
           child: Stack(

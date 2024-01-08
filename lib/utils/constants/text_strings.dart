@@ -32,6 +32,9 @@ class ATexts {
   static const String rememberMe = "Remember Me";
   static const String forgetPassword = "Forget Password?";
   static const String signIn = "Sign In";
+  static const String signOut = "Sign Out";
+  static const String loginIn = "Login";
+  static const String logOut = "Logout";
   static const String createAccount = "Create Account";
   static const String orSignInWith = "or sign in with";
   static const String orSignUpWith = "or sign up with";
@@ -176,4 +179,37 @@ class ATexts {
 
   // --Search
   static const String searchInStore = "Search In Store";
+
+  // -- Profile Setting
+  static const String account = "Account";
+  static const String accountSettings = "Account Settings";
+  static const String myAddresses = "My Addresses";
+  static const String myCart = "My Cart";
+  static const String myOrders = "My Orders";
+  static const String bankAccount = "Bank Account";
+  static const String myCoupons = "My Coupons";
+  static const String notifications = "Notifications";
+  static const String accountPrivacy = "Account Privacy";
+  static const String appSettings = "App Settings";
+  static const String loadData = "Load Data";
+  static const String geoLocation = "Geo Location";
+  static const String safeMode = "Safe Mode";
+  static const String hdImageQuality = "HD Image Quality";
+
+  static const String setImageQuality = "Set Image Quality to be seen";
+  static const String searchResultInSafe = "Search result is safe for all ages";
+  static const String uploadData = "Upload Data to your Cloud FireBase";
+  static const String listOfDiscount = "List Of all the discounted coupons";
+  static const String inProgressOrder = "In-Progress And Completed Orders";
+  static const String setShoppingDelivery = "Set Shopping Delivery Address";
+  static const String addRemoveProduct =
+      "Add, remove Product and move to checkout";
+  static const String withdrawBalance =
+      "Withdraw balance to registered bank account";
+  static const String manageDataUsing =
+      "Manage Data Using and Connected Account";
+  static const String setAnyKindOfNotification =
+      "Set any kind of notification message";
+  static const String setRecommendations =
+      "Set recommendations based on location";
 }
