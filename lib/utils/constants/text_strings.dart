@@ -28,9 +28,12 @@ class ATexts {
   static const String password = "Password";
   static const String newPassword = "New Password";
   static const String username = "Username";
+  static const String userid = "User ID";
+  static const String name = "Name";
   static const String phoneNo = "Phone Number";
   static const String rememberMe = "Remember Me";
   static const String forgetPassword = "Forget Password?";
+  static const String save = "Save";
   static const String signIn = "Sign In";
   static const String signOut = "Sign Out";
   static const String loginIn = "Login";
@@ -180,7 +183,7 @@ class ATexts {
   // --Search
   static const String searchInStore = "Search In Store";
 
-  // -- Profile Setting
+  // -- Settings
   static const String account = "Account";
   static const String accountSettings = "Account Settings";
   static const String myAddresses = "My Addresses";
@@ -212,4 +215,14 @@ class ATexts {
       "Set any kind of notification message";
   static const String setRecommendations =
       "Set recommendations based on location";
+
+// -- Profile
+  static const String profile = "Profile";
+  static const String changeYourImage = "Change Your Profile Picture";
+  static const String profileInformation = "Profile Information";
+  static const String personalInformation = "Personal Information";
+  static const String gender = "Gender";
+  static const String dateOfBirth = "Date Of Birth";
+  static const String editSubtitle =
+      "Use real information for easy verification. This information will appear on several pages.";
 }

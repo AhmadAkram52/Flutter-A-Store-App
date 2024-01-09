@@ -1,5 +1,5 @@
+import 'package:a_store/features/personalization/screens/settings/settings.dart';
 import 'package:a_store/features/shop/screens/home/home.dart';
-import 'package:a_store/features/shop/screens/profile/profile.dart';
 import 'package:a_store/features/shop/screens/store/store.dart';
 import 'package:a_store/features/shop/screens/wishlist/wishlist.dart';
 import 'package:a_store/utils/constants/sizes.dart';
@@ -43,6 +43,6 @@ class NavigationController extends GetxController {
     const HomeScreen(),
     const AStore(),
     const AWishList(),
-    const AProfile(),
+    const Settings(),
   ];
 }

@@ -3,6 +3,7 @@ import 'package:a_store/utils/constants/colors.dart';
 import 'package:a_store/utils/constants/image_strings.dart';
 import 'package:a_store/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class AUserListTile extends StatelessWidget {
@@ -33,7 +34,9 @@ class AUserListTile extends StatelessWidget {
           Iconsax.edit,
           color: AColors.white,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed('/profile');
+        },
       ),
     );
   }
