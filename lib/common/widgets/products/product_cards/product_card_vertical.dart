@@ -7,6 +7,7 @@ import 'package:a_store/common/widgets/text/product_price_text.dart';
 import 'package:a_store/common/widgets/text/product_title_text.dart';
 import 'package:a_store/features/shop/controllers/wishlist/wishlist_controller.dart';
 import 'package:a_store/features/shop/models/products/products_data_model.dart';
+import 'package:a_store/features/shop/screens/product_details/product_details.dart';
 import 'package:a_store/utils/constants/colors.dart';
 import 'package:a_store/utils/constants/sizes.dart';
 import 'package:a_store/utils/helpers/helper_functions.dart';
@@ -26,7 +27,7 @@ class AProductCardVertical extends StatelessWidget {
     final bool isDark = AHelperFunctions.isDarkMode(context);
     final wishlistController = Get.put(WishListController());
     return InkWell(
-      onTap: () {},
+      onTap: () => Get.to(ProductDetails(index: index)),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
