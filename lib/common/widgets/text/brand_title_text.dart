@@ -21,6 +21,7 @@ class ABrandTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       brandTitle,
+      overflow: TextOverflow.ellipsis,
       style: brandTextSize == TextSizes.small
           ? Theme.of(context).textTheme.labelMedium!.apply(color: textColor)
           : brandTextSize == TextSizes.medium
@@ -34,7 +35,6 @@ class ABrandTitle extends StatelessWidget {
                       .textTheme
                       .bodyMedium!
                       .apply(color: textColor),
-      overflow: TextOverflow.ellipsis,
       maxLines: maxLines,
       textAlign: textAlign,
     );

@@ -69,10 +69,8 @@ class ASizes {
   static const double gridViewSpacing = 16.0;
 
   //Logo size
-
   static const double logoSize = 120.0;
 
   // Navigation Bar size
-
   static const double navBarHeight = 80;
 }

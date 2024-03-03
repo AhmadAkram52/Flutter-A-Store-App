@@ -7,6 +7,7 @@ import 'package:a_store/common/widgets/searchbar/search_bar.dart';
 import 'package:a_store/common/widgets/text/section_heading.dart';
 import 'package:a_store/features/shop/models/brand/brands_list.dart';
 import 'package:a_store/utils/constants/colors.dart';
+import 'package:a_store/utils/constants/enums.dart';
 import 'package:a_store/utils/constants/sizes.dart';
 import 'package:a_store/utils/constants/text_strings.dart';
 import 'package:a_store/utils/helpers/helper_functions.dart';
@@ -64,9 +65,10 @@ class AStore extends StatelessWidget {
                             itemCounter: 4,
                             mainAxisExtent: 65,
                             itemBuilder: (context, index) => ABrandCard(
-                              title: brandsList[index].title,
-                              image: brandsList[index].image,
+                              title: brandsList[0].title,
+                              image: brandsList[0].image,
                               noOfProducts: 33 * (index + 2),
+                              textSizes: TextSizes.large,
                             ),
                           ),
                         ]),

@@ -1,3 +1,4 @@
+import 'package:a_store/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:a_store/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:a_store/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:a_store/utils/constants/sizes.dart';
@@ -37,6 +38,8 @@ class ProductDetails extends StatelessWidget {
                   AProductMetaData(),
 
                   /// Attributes
+                  AProductAttributes(),
+
                   /// Checkout Button
                   /// Description
                   /// Reviews

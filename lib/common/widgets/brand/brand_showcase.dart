@@ -48,7 +48,7 @@ class ABrandShowCase extends StatelessWidget {
     final bool isDark = AHelperFunctions.isDarkMode(context);
     return Expanded(
       child: ARoundedContainer(
-        height: 80,
+        height: 75,
         margin: const EdgeInsets.symmetric(horizontal: ASizes.xs),
         padding: const EdgeInsets.all(ASizes.xs),
         backgroundColor: isDark ? AColors.darkerGrey : AColors.lightGrey,

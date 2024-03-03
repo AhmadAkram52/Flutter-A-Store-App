@@ -1,11 +1,12 @@
 import 'package:a_store/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:a_store/common/widgets/images/circular_image.dart';
-import 'package:a_store/common/widgets/text/brand_title_with_verified_icon.dart';
 import 'package:a_store/utils/constants/colors.dart';
 import 'package:a_store/utils/constants/enums.dart';
 import 'package:a_store/utils/constants/sizes.dart';
 import 'package:a_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+
+import '../text/brand_title_with_verified_icon.dart';
 
 class ABrandCard extends StatelessWidget {
   const ABrandCard({
@@ -14,11 +15,13 @@ class ABrandCard extends StatelessWidget {
     required this.title,
     this.showBorder = true,
     required this.noOfProducts,
+    this.textSizes = TextSizes.large,
   });
 
   final String image, title;
   final bool showBorder;
   final int noOfProducts;
+  final TextSizes textSizes;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +50,8 @@ class ABrandCard extends StatelessWidget {
                 children: [
                   ABrandNameWithVerifyIcon(
                     title: title,
-                    brandTextSize: TextSizes.large,
+                    brandTextSize: textSizes,
+                    // textColor: isDark ? AColors.white : AColors.black,
                   ),
                   Text(
                     "$noOfProducts Products",
