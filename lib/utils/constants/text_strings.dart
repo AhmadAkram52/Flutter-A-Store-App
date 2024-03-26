@@ -5,6 +5,11 @@ class ATexts {
   static const String skip = "Skip";
   static const String done = "Done";
   static const String submit = "Submit";
+  static const String street = "Street";
+  static const String state = "State";
+  static const String postalCode = "Postal Code";
+  static const String city = "City";
+  static const String country = "Country";
   static const String appName = "A-Store";
   static const String store = "Store";
   static const String stock = "Stock";
