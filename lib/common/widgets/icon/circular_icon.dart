@@ -24,9 +24,11 @@ class ACircularIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool isDark = AHelperFunctions.isDarkMode(context);
-    return Container(
+    return InkWell(
+      onTap: onPress,
+      child: Container(
         height: height,
-        padding: EdgeInsets.zero,
+        padding: const EdgeInsets.all(ASizes.sm),
         width: width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
@@ -36,11 +38,23 @@ class ACircularIcon extends StatelessWidget {
                   ? AColors.darkerGrey.withOpacity(.9)
                   : AColors.grey.withOpacity(.9),
         ),
-        child: Center(
-          child: IconButton(
-            icon: Icon(icon, size: iconSize, color: iconColor),
-            onPressed: onPress,
-          ),
-        ));
+        child: Icon(icon, size: iconSize, color: iconColor),
+      ),
+    );
+    //   CircleAvatar(
+    //   backgroundColor: backgroundColor != null
+    //       ? backgroundColor!
+    //       : isDark
+    //           ? AColors.darkerGrey.withOpacity(.9)
+    //           : AColors.grey.withOpacity(.9),
+    //   child: Center(
+    //     child: IconButton(
+    //       icon: Icon(icon, size: iconSize, color: iconColor),
+    //       onPressed: onPress,
+    //     ),
+    //     heightFactor: height,
+    //   ),
+    // );
+    //
   }
 }

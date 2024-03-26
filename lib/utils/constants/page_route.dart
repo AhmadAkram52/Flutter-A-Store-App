@@ -7,10 +7,13 @@ import 'package:a_store/features/authentication/screens/signup/email_verificatio
 import 'package:a_store/features/authentication/screens/signup/signup_screen.dart';
 import 'package:a_store/features/personalization/screens/address/my_addresses_screen.dart';
 import 'package:a_store/features/personalization/screens/profile/profile.dart';
+import 'package:a_store/features/shop/screens/product_reviews/products_reviews.dart';
 import 'package:a_store/navigation_menu.dart';
 import 'package:a_store/utils/constants/image_strings.dart';
 import 'package:a_store/utils/constants/text_strings.dart';
 import 'package:get/get.dart';
+
+import '../../features/personalization/screens/address/add_new_address.dart';
 
 class APageRoutes {
   static List<GetPage> aPagesRoutes = [
@@ -32,5 +35,7 @@ class APageRoutes {
     GetPage(name: '/navigation', page: () => const NavigationMenu()),
     GetPage(name: '/profile', page: () => const AProfile()),
     GetPage(name: '/addresses', page: () => const MyAddresses()),
+    GetPage(name: '/productReviews', page: () => const AProductReviews()),
+    GetPage(name: '/addNewAddress', page: () => const AddNewAddress()),
   ];
 }

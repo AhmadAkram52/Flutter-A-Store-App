@@ -32,8 +32,8 @@ class AProductImageSlider extends StatelessWidget {
               action: [
                 Obx(() {
                   return ACircularIcon(
-                    height: 40,
-                    width: 40,
+                    height: 45,
+                    width: 45,
                     onPress: () {
                       WishListController.instance.addToWishList(index);
                     },

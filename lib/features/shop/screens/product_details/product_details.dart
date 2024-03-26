@@ -3,7 +3,6 @@ import 'package:a_store/features/shop/screens/product_details/widgets/bottom_add
 import 'package:a_store/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:a_store/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:a_store/features/shop/screens/product_details/widgets/rating_share_widget.dart';
-import 'package:a_store/features/shop/screens/product_reviews/products_reviews.dart';
 import 'package:a_store/utils/constants/sizes.dart';
 import 'package:a_store/utils/constants/text_strings.dart';
 import 'package:a_store/utils/helpers/helper_functions.dart';
@@ -85,7 +84,7 @@ class ProductDetails extends StatelessWidget {
                       ),
                       IconButton(
                           onPressed: () {
-                            Get.to(const AProductReviews());
+                            Get.toNamed('/productReviews');
                           },
                           icon: const Icon(Iconsax.arrow_right_3))
                     ],
