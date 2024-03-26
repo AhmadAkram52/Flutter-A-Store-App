@@ -5,6 +5,7 @@ import 'package:a_store/utils/constants/sizes.dart';
 import 'package:a_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 class MyAddresses extends StatelessWidget {
   const MyAddresses({super.key});
@@ -30,32 +31,62 @@ class MyAddresses extends StatelessWidget {
           padding: const EdgeInsets.all(ASizes.defaultSpace),
           child: Column(
             children: List.generate(
-                10,
-                (index) => Column(
-                      children: [
-                        ARoundedContainer(
-                          borderColor: isDark ? AColors.darkGrey : AColors.grey,
-                          backgroundColor: Colors.transparent,
-                          showBorder: true,
-                          padding: const EdgeInsets.all(ASizes.md),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Ahmad Akram",
-                                style: Theme.of(context).textTheme.titleLarge,
-                              ),
-                              const Text("+93025249091"),
-                              const Text(
-                                  "House No # 374, Street No 15, Babar Block, Bahria Town Lahore"),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: ASizes.spaceBtwItems),
-                      ],
-                    )),
+              10,
+              (index) => ASingleAddress(
+                isSelected: index == 1 ? true : false,
+              ),
+            ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class ASingleAddress extends StatelessWidget {
+  const ASingleAddress({
+    super.key,
+    this.isSelected = false,
+  });
+
+  final bool isSelected;
+
+  @override
+  Widget build(BuildContext context) {
+    final isDark = AHelperFunctions.isDarkMode(context);
+    return ARoundedContainer(
+      margin: const EdgeInsets.only(bottom: ASizes.spaceBtwItems),
+      borderColor: isSelected
+          ? Colors.transparent
+          : isDark
+              ? AColors.darkGrey
+              : AColors.grey,
+      backgroundColor:
+          isSelected ? AColors.primary.withOpacity(.5) : Colors.transparent,
+      showBorder: true,
+      padding: const EdgeInsets.all(ASizes.md),
+      child: Stack(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Ahmad Akram",
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ],
+              ),
+              const Text("+92025249091"),
+              const Text(
+                  "House No # 374, Street No 15, Babar Block, Bahria Town Lahore"),
+            ],
+          ),
+          Positioned(
+              right: 0, child: Icon(isSelected ? Iconsax.tick_circle5 : null)),
+        ],
       ),
     );
   }
