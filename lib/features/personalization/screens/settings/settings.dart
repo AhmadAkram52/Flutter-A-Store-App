@@ -7,6 +7,7 @@ import 'package:a_store/utils/constants/colors.dart';
 import 'package:a_store/utils/constants/sizes.dart';
 import 'package:a_store/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class Settings extends StatelessWidget {
@@ -44,34 +45,36 @@ class Settings extends StatelessWidget {
                   const ASectionHeading(
                       headingTitle: ATexts.accountSettings,
                       showActionButton: false),
-                  const Column(
+                  Column(
                     children: [
-                      SizedBox(height: ASizes.spaceBtwItems),
+                      const SizedBox(height: ASizes.spaceBtwItems),
                       ASettingMenuTile(
-                          pageTitle: ATexts.myAddresses,
-                          subTitle: ATexts.setShoppingDelivery,
-                          leadingIcon: Iconsax.safe_home),
-                      ASettingMenuTile(
+                        pageTitle: ATexts.myAddresses,
+                        subTitle: ATexts.setShoppingDelivery,
+                        leadingIcon: Iconsax.safe_home,
+                        onTap: () => Get.toNamed('/addresses'),
+                      ),
+                      const ASettingMenuTile(
                           pageTitle: ATexts.myOrders,
                           subTitle: ATexts.inProgressOrder,
                           leadingIcon: Iconsax.bag_tick),
-                      ASettingMenuTile(
+                      const ASettingMenuTile(
                           pageTitle: ATexts.bankAccount,
                           subTitle: ATexts.withdrawBalance,
                           leadingIcon: Iconsax.bank),
-                      ASettingMenuTile(
+                      const ASettingMenuTile(
                           pageTitle: ATexts.myCoupons,
                           subTitle: ATexts.listOfDiscount,
                           leadingIcon: Iconsax.discount_shape),
-                      ASettingMenuTile(
+                      const ASettingMenuTile(
                           pageTitle: ATexts.notifications,
                           subTitle: ATexts.setAnyKindOfNotification,
                           leadingIcon: Iconsax.notification),
-                      ASettingMenuTile(
+                      const ASettingMenuTile(
                           pageTitle: ATexts.accountPrivacy,
                           subTitle: ATexts.manageDataUsing,
                           leadingIcon: Iconsax.security_card),
-                      SizedBox(height: ASizes.spaceBtwItems),
+                      const SizedBox(height: ASizes.spaceBtwItems),
                     ],
                   ),
                   const ASectionHeading(

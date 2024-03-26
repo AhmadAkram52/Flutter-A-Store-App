@@ -5,7 +5,8 @@ import 'package:a_store/features/authentication/screens/login/login_screen.dart'
 import 'package:a_store/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:a_store/features/authentication/screens/signup/email_verification_screen.dart';
 import 'package:a_store/features/authentication/screens/signup/signup_screen.dart';
-import 'package:a_store/features/shop/screens/profile/profile.dart';
+import 'package:a_store/features/personalization/screens/address/my_addresses_screen.dart';
+import 'package:a_store/features/personalization/screens/profile/profile.dart';
 import 'package:a_store/navigation_menu.dart';
 import 'package:a_store/utils/constants/image_strings.dart';
 import 'package:a_store/utils/constants/text_strings.dart';
@@ -30,5 +31,6 @@ class APageRoutes {
     GetPage(name: '/reset', page: () => const ResetScreen()),
     GetPage(name: '/navigation', page: () => const NavigationMenu()),
     GetPage(name: '/profile', page: () => const AProfile()),
+    GetPage(name: '/addresses', page: () => const MyAddresses()),
   ];
 }

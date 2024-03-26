@@ -1,7 +1,7 @@
 import 'package:a_store/common/widgets/bars/appbar.dart';
 import 'package:a_store/common/widgets/images/circular_image.dart';
 import 'package:a_store/common/widgets/text/section_heading.dart';
-import 'package:a_store/features/shop/screens/profile/profile_menu.dart';
+import 'package:a_store/features/personalization/screens/profile/profile_menu.dart';
 import 'package:a_store/utils/constants/colors.dart';
 import 'package:a_store/utils/constants/image_strings.dart';
 import 'package:a_store/utils/constants/sizes.dart';
