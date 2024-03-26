@@ -7,7 +7,9 @@ class ATexts {
   static const String submit = "Submit";
   static const String appName = "A-Store";
   static const String store = "Store";
+  static const String stock = "Stock";
   static const String aContinue = "Continue";
+  static const String checkOut = "CheckOut";
 
   // -- OnBoarding Texts
   static const String onBoardingTitle1 = "Choose your Product";
@@ -47,6 +49,7 @@ class ATexts {
   static const String verificationCode = "verificationCode";
   static const String resendEmail = "Resend Email";
   static const String resendEmailIn = "Resend email in";
+  static const String price = "Price";
 
   // -- Authentication Headings
   static const String loginTitle = "Welcome Back,";

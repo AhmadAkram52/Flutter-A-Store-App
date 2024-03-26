@@ -1,4 +1,5 @@
 import 'package:a_store/utils/constants/colors.dart';
+import 'package:a_store/utils/constants/sizes.dart';
 import 'package:a_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,7 @@ class ACircularIcon extends StatelessWidget {
     super.key,
     this.height,
     this.width,
-    this.iconSize,
+    this.iconSize = ASizes.iconLg,
     this.onPress,
     required this.icon,
     this.iconColor,
@@ -25,13 +26,15 @@ class ACircularIcon extends StatelessWidget {
     final bool isDark = AHelperFunctions.isDarkMode(context);
     return Container(
         height: height,
-        padding: const EdgeInsets.all(0),
+        padding: EdgeInsets.zero,
         width: width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
-          color: isDark
-              ? AColors.darkerGrey.withOpacity(.9)
-              : AColors.grey.withOpacity(.9),
+          color: backgroundColor != null
+              ? backgroundColor!
+              : isDark
+                  ? AColors.darkerGrey.withOpacity(.9)
+                  : AColors.grey.withOpacity(.9),
         ),
         child: Center(
           child: IconButton(
